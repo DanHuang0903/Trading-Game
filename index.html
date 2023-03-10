@@ -35,17 +35,111 @@
         
         <!-------  End of User ID Input  ----->
 
-        <div id="playground" class="row" style="display:none;">
-            <!--------  Image div -------->
-            <div id="image_div" class="container-fluid col-md-5">
-                <img src="round0.png" alt="round0" class="img-fluid">
+        <div id="playground" class="container m-3 row" style="display: none;">
+            <h3 class="m-4 display-5">Round <span id="round_num">0</span></h3>
+            <span class="badge bg-success fs-4 shadow">Cash on Hand: <span id="cash">10000</span></span>
+                <hr>
+             <!--------  Image div -------->
+             <div id="image_div" class="col-md-6">
+                <img src="round0.png" alt="round0" class="m-2" width="500">
+                <button class="btn btn-success mt-5" id="next"> NEXT ROUND</button>
             </div>
+            
+            
             <!--------  End of Image div  ----->
 
             <!-----   Input panel----->
-            <div id="input_panel" class="container-fluid col-md-5">
-                <a id="download">download</a>
+            <div id="input_panel" class="col-md-5 p-2 m-2">
+                
+                <div class="fs-6 row" id="stock_a"> 
+                    <div class="col-md-5">
+                        <p>Asset A</p>
+                        <p style="font-size: small;">Unit Price: $<span id="a_unit">69</span></p>
+                        <p style="font-size: small;">Share Owned: <span id="share_a">0</span></p>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="number" id="a_buy" value="0" style="width: 7rem;" price="69">
+                        <button id="buy_a" class="btn btn-success btn-sm buy_btn" style="padding-left: 1rem; padding-right: 1rem;">Buy</button>
+                        <input type="number" id="a_sell" value="0" style="width: 7rem;">
+                        <button id="sell_a" class="btn btn-primary btn-sm sell_btn" style="padding-left: 1rem; padding-right: 1rem;">Sell</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="fs-6 row" id="stock_b"> 
+                    <div class="col-md-5">
+                        <p>Asset B</p>
+                        <p style="font-size: small;">Unit Price: $<span id="b_unit">131</span></p>
+                        <p style="font-size: small;">Share Owned: <span id="share_b">0</span></p>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="number" id="b_buy" value="0" style="width: 7rem;" price="131">
+                        <button id="buy_b" class="btn btn-success btn-sm buy_btn" style="padding-left: 1rem; padding-right: 1rem;">Buy</button>
+                        <input type="number" id="b_sell" value="0" style="width: 7rem;">
+                        <button id="sell_b" class="btn btn-primary btn-sm sell_btn" style="padding-left: 1rem; padding-right: 1rem;">Sell</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="fs-6 row" id="stock_c"> 
+                    <div class="col-md-5">
+                        <p>Asset C</p>
+                        <p style="font-size: small;">Unit Price: $<span id="c_unit">83</span></p>
+                        <p style="font-size: small;">Share Owned: <span id="share_c">0</span></p>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="number" id="c_buy" value="0" style="width: 7rem;" price="83">
+                        <button id="buy_c" class="btn btn-success btn-sm buy_btn" style="padding-left: 1rem; padding-right: 1rem;">Buy</button>
+                        <input type="number" id="c_sell" value="0" style="width: 7rem;">
+                        <button id="sell_c" class="btn btn-primary btn-sm sell_btn" style="padding-left: 1rem; padding-right: 1rem;">Sell</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="fs-6 row" id="stock_d"> 
+                    <div class="col-md-5">
+                        <p>Asset D</p>
+                        <p style="font-size: small;">Unit Price: $<span id="d_unit">50</span></p>
+                        <p style="font-size: small;">Share Owned: <span id="share_d">0</span></p>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="number" id="d_buy" value="0" style="width: 7rem;" price="50">
+                        <button id="buy_d" class="btn btn-success btn-sm buy_btn" style="padding-left: 1rem; padding-right: 1rem;">Buy</button>
+                        <input type="number" id="d_sell" value="0" style="width: 7rem;">
+                        <button id="sell_d" class="btn btn-primary btn-sm sell_btn" style="padding-left: 1rem; padding-right: 1rem;">Sell</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="fs-6 row" id="stock_e"> 
+                    <div class="col-md-5">
+                        <p>Asset E</p>
+                        <p style="font-size: small;">Unit Price: $<span id="e_unit">142</span></p>
+                        <p style="font-size: small;">Share Owned: <span id="share_e">0</span></p>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="number" id="e_buy" value="0" style="width: 7rem;" price="142">
+                        <button id="buy_e" class="btn btn-success btn-sm buy_btn" style="padding-left: 1rem; padding-right: 1rem;">Buy</button>
+                        <input type="number" id="e_sell" value="0" style="width: 7rem;">
+                        <button id="sell_e" class="btn btn-primary btn-sm sell_btn" style="padding-left: 1rem; padding-right: 1rem;">Sell</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="fs-6 row" id="stock_f"> 
+                    <div class="col-md-5">
+                        <p>Asset F</p>
+                        <p style="font-size: small;">Unit Price: $<span id="f_unit">95</span></p>
+                        <p style="font-size: small;">Share Owned: <span id="share_f">0</span></p>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="number" id="f_buy" value="0" style="width: 7rem;" price="95">
+                        <button id="buy_f" class="btn btn-success btn-sm buy_btn" style="padding-left: 1rem; padding-right: 1rem;">Buy</button>
+                        <input type="number" id="f_sell" value="0" style="width: 7rem;">
+                        <button id="sell_f" class="btn btn-primary btn-sm sell_btn" style="padding-left: 1rem; padding-right: 1rem;">Sell</button>
+                    </div>
+                </div>
+                <hr>
+
             </div>
+           <!------  End of Inout Panel ----->
+
+            
 
         </div>
 
