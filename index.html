@@ -11,7 +11,7 @@
         <!----  Header --->
         <div class="container-fluid p-0">
             <header class="d-flex justify-content-center mb-4 border-bottom bg-dark p-0 shadow-lg">
-                <img class="m-1" src="logo.png" width="40" height="40" alt="logo"/>
+                <img class="m-1" src="img/logo.png" width="40" height="40" alt="logo"/>
                 <p class="fs-3 text-light">Trading Game</p>
             </header>
         </div>
@@ -36,12 +36,12 @@
         <!-------  End of User ID Input  ----->
 
         <div id="playground" class="container m-3 row" style="display: none;">
-            <h3 class="m-4 display-5">Round <span id="round_num">0</span></h3>
-            <span class="badge bg-success fs-4 shadow">Cash on Hand: <span id="cash">10000</span></span>
-                <hr>
+            <h3 id="final_result" class="m-4 display-5">Round <span id="round_num">0</span></h3>
+            <span id="header" class="badge bg-success fs-4 shadow">Cash on Hand: <span id="cash">10000</span></span>
+             <hr>
              <!--------  Image div -------->
-             <div id="image_div" class="col-md-6">
-                <img src="round0.png" alt="round0" class="m-2" width="500">
+             <div id="image_div" class="col-md-7">
+                <img id = "chart" src="img/Round 0.png" alt="Loading...." class="m-1" style="width: 35rem;height: 40rem;;">
                 <button class="btn btn-success mt-5" id="next"> NEXT ROUND</button>
             </div>
             
@@ -49,7 +49,7 @@
             <!--------  End of Image div  ----->
 
             <!-----   Input panel----->
-            <div id="input_panel" class="col-md-5 p-2 m-2">
+            <div id="input_panel" class="col-md-4 p-1">
                 
                 <div class="fs-6 row" id="stock_a"> 
                     <div class="col-md-5">
@@ -58,9 +58,9 @@
                         <p style="font-size: small;">Share Owned: <span id="share_a">0</span></p>
                     </div>
                     <div class="col-md-6">
-                        <input type="number" id="a_buy" value="0" style="width: 7rem;" price="69">
+                        <input class="input_panel" type="number" id="a_buy" value="0" style="width: 5rem;" price="69">
                         <button id="buy_a" class="btn btn-success btn-sm buy_btn" style="padding-left: 1rem; padding-right: 1rem;">Buy</button>
-                        <input type="number" id="a_sell" value="0" style="width: 7rem;">
+                        <input class="input_panel" type="number" id="a_sell" value="0" style="width: 5rem;">
                         <button id="sell_a" class="btn btn-primary btn-sm sell_btn" style="padding-left: 1rem; padding-right: 1rem;">Sell</button>
                     </div>
                 </div>
@@ -72,9 +72,9 @@
                         <p style="font-size: small;">Share Owned: <span id="share_b">0</span></p>
                     </div>
                     <div class="col-md-6">
-                        <input type="number" id="b_buy" value="0" style="width: 7rem;" price="131">
+                        <input class="input_panel" type="number" id="b_buy" value="0" style="width: 5rem;" price="131">
                         <button id="buy_b" class="btn btn-success btn-sm buy_btn" style="padding-left: 1rem; padding-right: 1rem;">Buy</button>
-                        <input type="number" id="b_sell" value="0" style="width: 7rem;">
+                        <input class="input_panel" type="number" id="b_sell" value="0" style="width: 5rem;">
                         <button id="sell_b" class="btn btn-primary btn-sm sell_btn" style="padding-left: 1rem; padding-right: 1rem;">Sell</button>
                     </div>
                 </div>
@@ -86,9 +86,9 @@
                         <p style="font-size: small;">Share Owned: <span id="share_c">0</span></p>
                     </div>
                     <div class="col-md-6">
-                        <input type="number" id="c_buy" value="0" style="width: 7rem;" price="83">
+                        <input class="input_panel" type="number" id="c_buy" value="0" style="width: 5rem;" price="83">
                         <button id="buy_c" class="btn btn-success btn-sm buy_btn" style="padding-left: 1rem; padding-right: 1rem;">Buy</button>
-                        <input type="number" id="c_sell" value="0" style="width: 7rem;">
+                        <input class="input_panel" type="number" id="c_sell" value="0" style="width: 5rem;">
                         <button id="sell_c" class="btn btn-primary btn-sm sell_btn" style="padding-left: 1rem; padding-right: 1rem;">Sell</button>
                     </div>
                 </div>
@@ -100,9 +100,9 @@
                         <p style="font-size: small;">Share Owned: <span id="share_d">0</span></p>
                     </div>
                     <div class="col-md-6">
-                        <input type="number" id="d_buy" value="0" style="width: 7rem;" price="50">
+                        <input class="input_panel" type="number" id="d_buy" value="0" style="width: 5rem;" price="50">
                         <button id="buy_d" class="btn btn-success btn-sm buy_btn" style="padding-left: 1rem; padding-right: 1rem;">Buy</button>
-                        <input type="number" id="d_sell" value="0" style="width: 7rem;">
+                        <input class="input_panel" type="number" id="d_sell" value="0" style="width: 5rem;">
                         <button id="sell_d" class="btn btn-primary btn-sm sell_btn" style="padding-left: 1rem; padding-right: 1rem;">Sell</button>
                     </div>
                 </div>
@@ -114,9 +114,9 @@
                         <p style="font-size: small;">Share Owned: <span id="share_e">0</span></p>
                     </div>
                     <div class="col-md-6">
-                        <input type="number" id="e_buy" value="0" style="width: 7rem;" price="142">
+                        <input class="input_panel" type="number" id="e_buy" value="0" style="width: 5rem;" price="142">
                         <button id="buy_e" class="btn btn-success btn-sm buy_btn" style="padding-left: 1rem; padding-right: 1rem;">Buy</button>
-                        <input type="number" id="e_sell" value="0" style="width: 7rem;">
+                        <input class="input_panel" type="number" id="e_sell" value="0" style="width: 5rem;">
                         <button id="sell_e" class="btn btn-primary btn-sm sell_btn" style="padding-left: 1rem; padding-right: 1rem;">Sell</button>
                     </div>
                 </div>
@@ -128,18 +128,32 @@
                         <p style="font-size: small;">Share Owned: <span id="share_f">0</span></p>
                     </div>
                     <div class="col-md-6">
-                        <input type="number" id="f_buy" value="0" style="width: 7rem;" price="95">
+                        <input class="input_panel" type="number" id="f_buy" value="0" style="width: 5rem;" price="95">
                         <button id="buy_f" class="btn btn-success btn-sm buy_btn" style="padding-left: 1rem; padding-right: 1rem;">Buy</button>
-                        <input type="number" id="f_sell" value="0" style="width: 7rem;">
+                        <input class="input_panel" type="number" id="f_sell" value="0" style="width: 5rem;">
                         <button id="sell_f" class="btn btn-primary btn-sm sell_btn" style="padding-left: 1rem; padding-right: 1rem;">Sell</button>
                     </div>
                 </div>
                 <hr>
-
+                 
             </div>
            <!------  End of Inout Panel ----->
-
             
+            <!-------  Final Panel  -------->
+            <div id="final_panel" class="col-md-4 p-1 m-3" sytle="display:none;">
+                <h3 class="fs-2">Final Result</h3>
+                <hr>
+                <p class="fs-5"> After selling all the shares you owned at the current price listed on the left, you final portfolio value is
+                    <br><span class="badge bg-success fs-3" id="final_value"></span>
+                </p>
+                <hr>
+                <div class="d-md-flex justify-content-md-end">
+                    <a id="log" class="btn btn-primary ">Download Log</a>
+                </div>
+            </div>
+            
+                
+        <!-------  End of Final Panel  -------->       
 
         </div>
 
@@ -147,7 +161,7 @@
         <div class="container">
             <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             <div class="col-md-4 d-flex align-items-center">
-                <img class="m-2" src="logo_footer.png" alt="footer logo" width="35" height="35">
+                <img class="m-2" src="img/logo_footer.png" alt="footer logo" width="35" height="35">
                 </a>
                 <p class="mb-3 mb-md-0 text-muted">&copy; <span id="my_name">2023 Developed by Dan Huang</span></p>
             </div>
