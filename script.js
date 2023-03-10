@@ -16,9 +16,9 @@ startBtn.click(function(){
         const mysql = require('mysql');
         const connection = mysql.createConnection({
             host: 'us-cdbr-east-06.cleardb.net',
-            user: 'b1f02369320b41',
-            password: '0107800f',
-            database: 'heroku_b3a0695de6147fe',
+            user: 'be2a1b689d026a',
+            password: '09c33246',
+            database: 'heroku_84033afa304cc4e',
 
         });
 
