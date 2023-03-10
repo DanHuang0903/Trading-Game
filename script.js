@@ -519,8 +519,8 @@ $('#sell_f').click(function(){
 }
 
  $('#next').click(function(){
-    if(num < 11){
     let num = parseInt($('#round_num').text());
+    if(num < 11){
     a_value = parseInt( $('#share_a').text()) * parseInt($('#a_buy').attr('price'));
     b_value = parseInt( $('#share_b').text()) * parseInt($('#b_buy').attr('price'));
     f_value = parseInt( $('#share_f').text()) * parseInt($('#f_buy').attr('price'));
@@ -532,6 +532,10 @@ $('#sell_f').click(function(){
     RECORD[num].push({total_value:total});
     console.log(RECORD);
 
+    let inputs = document.getElementsByTagName("input");
+    for(let e of inputs){
+        e.value = "0";
+    }
     num ++;
     $('#round_num').text(num)
     $('#a_buy').attr('price', UNIT[num][0]);
@@ -546,6 +550,7 @@ $('#sell_f').click(function(){
     $('#e_unit').text(UNIT[num][4]);
     $('#f_buy').attr('price', UNIT[num][5]);
     $('#f_unit').text(UNIT[num][5]);
+
     
    process(num);
     }
