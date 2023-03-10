@@ -1,27 +1,33 @@
 <?php
+// Load the PHPMailer library
+require 'phpmailer/PHPMailerAutoload.php';
 
-$servername = "us-cdbr-east-06.cleardb.net";
-$username = "be2a1b689d026a";
-$password = "09c33246";
-$dbname = "heroku_84033afa304cc4e";
+// Get the CSV data from the POST request
+$csv = $_POST['csv'];
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+// Get the recipient email address from the POST request
+$recipient = $_POST['email'];
 
-$user = mysqli_real_escape_string($conn, $_POST['user_id']); //sanitize value
-$sql = "INSERT INTO table_name (user_id) VALUES ('$user')";
+// Create a new PHPMailer object
+$mail = new PHPMailer;
 
-if (mysqli_query($conn, $sql)) {
-    echo "Record created successfully";
+// Set the From and To addresses
+$mail->setFrom('trading_game@test.com', 'Result');
+$mail->addAddress($recipient);
+
+// Set the subject and body of the email
+$mail->Subject = 'CSV File Attachment';
+$mail->Body = 'Please find attached the CSV file.';
+$mail->isHTML(false);
+
+// Add the CSV file as an attachment
+$mail->addStringAttachment($csv, 'record.csv', 'base64', 'text/csv');
+
+// Send the email
+if(!$mail->send()) {
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
-    echo "Error creating record: " . mysqli_error($conn);
+    echo 'Message sent!';
 }
-
-mysqli_close($conn);
-
 ?>
