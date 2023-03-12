@@ -23,10 +23,6 @@ const UNIT = [
 
 let num = 0;
 
-//RECORD.push({round: $('#round_num').text()});
-
-
-
 
 startBtn.click(function(){
     if($('#user_id').val() != ""){
@@ -63,7 +59,6 @@ $('#buy_a').click(function(){
     if(parseInt(cash) < (parseInt(buy_num) * parseInt(price))){
         alert("Have no enough cash.");
     }else{
-           // RECORD[num].push({A_Buy: buy_num});
             cash = parseInt(cash) - parseInt(buy_num) * parseInt(price);
             $('#cash').text(cash);
             shares = parseInt(shares) + parseInt($('#a_buy').val())
@@ -83,15 +78,12 @@ $('#buy_b').click(function(){
     if(parseInt(cash) < (parseInt(buy_num) * parseInt(price))){
         alert("Have no enough cash.");
     }else{
-      
-           // RECORD[num].push({B_Buy: buy_num});
             cash = parseInt(cash) - parseInt(buy_num) * parseInt(price);
             $('#cash').text(cash);
             $('#share_b').text(buy_num);
             shares = parseInt(shares) + parseInt($('#b_buy').val())
             $('#share_b').text(shares);
             buys[1] += parseInt(buy_num);
-    
     }
     
 
@@ -193,16 +185,12 @@ $('#sell_b').click(function(){
             alert("Have no enough shares");
             return false;
         }
-            
-            cash = parseInt(cash) + parseInt(sell_num) * parseInt(price);
-            $('#cash').text(cash);
-             $('#share_b').text(sell_num);
-             
-             shares = parseInt(shares) - parseInt(sell_num);
-            $('#share_b').text(shares);
-            sells[1] += parseInt(sell_num);
-    
-
+        cash = parseInt(cash) + parseInt(sell_num) * parseInt(price);
+        $('#cash').text(cash);
+        $('#share_b').text(sell_num);
+        shares = parseInt(shares) - parseInt(sell_num);
+        $('#share_b').text(shares);
+        sells[1] += parseInt(sell_num);
 });
 
 $('#sell_c').click(function(){
@@ -300,12 +288,6 @@ $('#sell_f').click(function(){
 
     num ++;
     if(num < 11){
-        // a_value = parseInt( $('#share_a').text()) * parseInt($('#a_buy').attr('price'));
-        // b_value = parseInt( $('#share_b').text()) * parseInt($('#b_buy').attr('price'));
-        // f_value = parseInt( $('#share_f').text()) * parseInt($('#f_buy').attr('price'));
-        // e_value = parseInt( $('#share_e').text()) * parseInt($('#e_buy').attr('price'));
-        // d_value = parseInt( $('#share_d').text()) * parseInt($('#d_buy').attr('price'));
-        // c_value = parseInt( $('#share_c').text()) * parseInt($('#c_buy').attr('price'));
 
         let inputs = document.getElementsByClassName("input_panel");
         for(let e of inputs){
@@ -326,8 +308,7 @@ $('#sell_f').click(function(){
         $('#f_buy').attr('price', UNIT[num][5]);
         $('#f_unit').text(UNIT[num][5]);
 
-        $('#chart').attr('src', 'img/Round ' + num + '.png');
-       // process(num);
+       // $('#chart').attr('src', 'img/Round ' + num + '.png');
     }else if(num == 11){
         RECORD[num].push({round: 'Final'});
         $('#next').hide();
