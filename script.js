@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 
 const startBtn = $('#start_btn');
 const login = $('#login');
@@ -339,16 +341,37 @@ $('#sell_f').click(function(){
               });
               const csv = Papa.unparse(data);
         console.log(csv);
-        //let csv1 = Papa.unparse(RECORD[1]);
+
         let blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
         let url = URL.createObjectURL(blob);
 
         let link = document.getElementById('log');
         link.setAttribute("href", url);
         link.setAttribute("download", "log.csv");
+
+        const AWS = window.AWS;
+        const s3 = new AWS.S3({
+            profile: 'default',
+            accessKeyId: 'AKIAW5DJH7M77U6EBCFH',
+            secretAccessKey: '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',
+
+        });
+        const params = {
+            Bucket: 'trading-game',
+            Key: 'trading-game-clarkson/object.json',
+            Body: JSON.stringify(RECORD),
+            ContentType: 'application/json',
+        };
+
+        s3.putObject(params, (err, data) => {
+            if(err){
+                throw err;
+            }
+            console.log('success!');
+        });
         
     }
  }); 
  
-
+});
         
