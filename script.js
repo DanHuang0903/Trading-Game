@@ -350,10 +350,17 @@ $('#sell_f').click(function(){
         link.setAttribute("download", "log.csv");
 
         const AWS = window.AWS;
+        const express = require('express');
+
+        const app = express();
+        app.use((req, res, next) => {
+            res.header('Access-Control-Allow-Origin', 'http://127.0.0.1');
+            next();
+          });
+
+        
         const s3 = new AWS.S3({
             profile: 'default',
-            accessKeyId: 'AKIAW5DJH7M77U6EBCFH',
-            secretAccessKey: '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',
 
         });
         const params = {
@@ -369,6 +376,11 @@ $('#sell_f').click(function(){
             }
             console.log('success!');
         });
+
+        app.listen(5000, () => {
+            console.log('Server started on port 5000');
+          });
+
         
     }
  }); 
